@@ -1,0 +1,142 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Spartan', sans-serif;
+    font-size: $font-medium;
+    font-weight: 500;
+    line-height: 1.5;
+    color: $darkGrayishMagenta;
+    background-color: $white;
+    background-image: url(/images/bg-pattern-top-desktop.svg), url(/images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top, bottom right;
+
+    @include breakpoint-down(medium) {
+        overflow:scroll;
+        background-image: url(/images/bg-pattern-top-mobile.svg), url(/images/bg-pattern-bottom-mobile.svg)
+    }
+}
+
+header {
+    grid-area: header;
+  
+     p {
+        padding-top: 2vh;
+        padding-right: 1vw;
+        
+    }
+
+    @include breakpoint-down(medium) {
+        
+        text-align: center;
+        padding-right: 0;
+    }
+}
+
+.rating{
+    grid-area: rating;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 6vw;
+    
+    @include breakpoint-down(medium) {
+        
+        margin-right: 0;
+    }
+
+
+    h3 {
+        flex-wrap: nowrap;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.5;
+        color: $veryDarkMagenta;
+        background-color: $lightGrayishMagenta;
+        width: 100%;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-right: 4vw;
+        margin-top: 2.5vh;
+        text-align: center;
+        
+      
+        &:nth-child(2){
+            margin-left: 3vw;
+            margin-right: 2vw;
+        }
+
+        &:last-child{
+            margin-left: 6vw;
+        }
+
+        &:before {
+            content: url(/images/icon-star.svg) " " url(/images/icon-star.svg) " " url(/images/icon-star.svg) " " url(/images/icon-star.svg) " " url(/images/icon-star.svg);
+            padding-right: 1.5vw;
+          
+            
+           
+            @include breakpoint-down(medium) {
+             padding-left: 28vw;
+             padding-right: 28vw;
+             padding-bottom: 0.5vh;
+             display: block;
+            
+
+            }
+
+        }
+
+      
+        @include breakpoint-down(medium) {
+            margin: 1vh 0 !important;
+            padding: 1vh 0;
+        }
+
+    }
+
+    
+}
+
+.cards {
+    grid-area: cards;
+}
+
+.grid {
+    width: 100vw;
+    height: 100vh;
+    padding:12vh 11vw;
+    display:grid;
+    grid-template-areas:
+    "header rating"
+    "cards cards";
+    column-gap: 8vw;
+    row-gap:8vh;
+
+    @include breakpoint-down(medium) {
+        height: 100%;
+        grid-template-areas: 
+        "header"
+        "rating"
+        "cards";
+        row-gap:2vh;
+        padding:6vh 5vw;
+    }
+   
+}
+
+h1 {
+    color: $veryDarkMagenta;
+    font-size: 54px;
+    line-height: 1.1;
+    @include breakpoint-down(medium) {
+        font-size: 31px;
+    }
+}
+
